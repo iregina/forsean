@@ -6,6 +6,8 @@
  Licensed under the MIT license (http://mit-license.org/)
 */
 
+
+
 var __slice = [].slice,
   __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
@@ -125,31 +127,33 @@ var __slice = [].slice,
       return item;
     };
 
-    SimpleSlider.prototype.setRatio = function(ratio) {
-      var value;
-      ratio = Math.min(1, ratio);
-      ratio = Math.max(0, ratio);
-      value = this.ratioToValue(ratio);
-      this.setSliderPositionFromValue(value);
-      return this.valueChanged(value, ratio, "setRatio");
-    };
+    // SimpleSlider.prototype.setRatio = function(ratio) {
+    //   var value;
+    //   ratio = Math.min(1, ratio);
+    //   ratio = Math.max(0, ratio);
+    //   value = this.ratioToValue(ratio);
+    //   this.setSliderPositionFromValue(value);
+    //   return this.valueChanged(value, ratio, "setRatio");
+    // };
 
-    SimpleSlider.prototype.setValue = function(value) {
-      var ratio;
-      value = this.nearestValidValue(value);
-      ratio = this.valueToRatio(value);
-      this.setSliderPositionFromValue(value);
-      return this.valueChanged(value, ratio, "setValue");
-    };
+    // SimpleSlider.prototype.setValue = function(value) {
+    //   var ratio;
+    //   value = this.nearestValidValue(value);
+    //   ratio = this.valueToRatio(value);
+    //   this.setSliderPositionFromValue(value);
+    //   return this.valueChanged(value, ratio, "setValue");
+    // };
 
-    SimpleSlider.prototype.trackEvent = function(e) {
-      if (e.which !== 1) {
-        return;
-      }
-      this.domDrag(e.pageX, e.pageY, true);
-      this.dragging = true;
-      return false;
-    };
+    // SimpleSlider.prototype.trackEvent = function(e) {
+    //   if (e.which !== 1) {
+    //     return;
+    //   }
+    //   this.domDrag(e.pageX, e.pageY, true);
+    //   this.dragging = true;
+    //   return false;
+    // };
+
+    // this allows the slider button to move
 
     SimpleSlider.prototype.domDrag = function(pageX, pageY, animate) {
       var pagePos, ratio, value;
@@ -171,6 +175,8 @@ var __slice = [].slice,
         }
       }
     };
+
+  // this sets the sliders position. 
 
     SimpleSlider.prototype.setSliderPosition = function(position, animate) {
       if (animate == null) {
@@ -197,6 +203,8 @@ var __slice = [].slice,
       }
     };
 
+// this sets the position and value in the beginning
+
     SimpleSlider.prototype.setSliderPositionFromValue = function(value, animate) {
       var ratio;
       if (animate == null) {
@@ -218,9 +226,12 @@ var __slice = [].slice,
           max: parseFloat(this.settings.range[1])
         };
       } else {
+        // this is where you set the max of the slider!!!!
+        // don't over look this part! 
+        // look HERE !!!!!
         return {
           min: 0,
-          max: 1
+          max: 100
         };
       }
     };
