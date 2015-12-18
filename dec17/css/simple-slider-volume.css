@@ -3,8 +3,9 @@ body {
   text-align: center;
 }
 .slider-volume {
-  width: 600px;
+  width: 70%;
 }
+
 
 .slider-volume > .dragger {
 	width: 22px;

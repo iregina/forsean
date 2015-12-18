@@ -14,7 +14,11 @@
 
   [class^=slider] { display: inline-block; margin-bottom: 30px; }
 
-  .output { display: block; color: #888; font-size: 40px; padding-bottom: 1px; margin-left: 0px; vertical-align: top;}
+  .output { display: block; color: #888; font-size: 2em; padding-bottom: 1px; margin-left: 0px; vertical-align: top;}
+
+  .slidee {
+    background:; margin-left:20%; margin-right: 20%;
+  }
 
   h1 { font-size: 20px; }
   h2 { clear: both; margin: 0; margin-bottom: 5px; font-size: 16px; }
@@ -30,10 +34,9 @@
   <p>
     Here is a slider Sean requested:
   </p>
-
+<div class="slidee">
   <input type="text" data-slider="true" value="5" data-slider-highlight="true" data-slider-theme="volume">
-
-
+</div>
   <script>
 
 
@@ -50,7 +53,8 @@
     .bind("slider:ready slider:changed", function (event, data) {
       $(this)
         .nextAll(".output:first")
-          .html("I want to eat "+data.value.toFixed(0) + " cookies");
+          .html("I want to eat "+data.value.toFixed(0) + " cookies")
+          ;
     });
 
 
