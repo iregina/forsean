@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>jQuery UI Slider functionality</title>
+
+
+   </head>
+
+<body>
+ 
+<p>
+  <label for="yourAgeRange">Your age range:</label>
+  <input type="text" id="yourAgeRange" style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+<div id="ageRangeSlider"></div>
+    
+<p>
+  <label for="amount">Policy amount:</label>
+  <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+<div id="policySlider"></div>
+ 
+ 
+</body>
+<script>
+$(function() {
+    //policy amount function
+    $("#policySlider").slider({
+      values:[50,100],
+        range:true,
+      min: 0,
+      max: 500,
+      step: 50,
+      slide: function(event, ui) {
+        $("#amount").val("$" + ui.value);
+      }
+    });
+    $("#amount").val("$" + $("#policySlider").slider("value"));
+    //age range function
+    $("#ageRangeSlider").slider({
+      value: 10,
+      min: 0,
+      max: 100,
+      step: 10,
+      slide: function(event, ui) {
+        $("#yourAgeRange").val(ui.value);
+      }
+    });
+    $("#yourAgeRange").val($("#ageRangeSlider").slider("value"));
+});
+</script>
+
+</html>
